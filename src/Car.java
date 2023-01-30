@@ -22,5 +22,8 @@ public class Car {
         this.year = year;
         this.country = country;
     }
+    public String toString(){
+        return "Автомобиль " + this.brand + ", модель " + this.model + ", объем двигателя " + this.engineVolume + " л, цвет " + this.color + ", сборка в " + this.year + " году в стране "+ this.country;
+    }
 
 }
