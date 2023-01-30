@@ -25,36 +25,33 @@ public class Car {
       значение по умолчанию.
      */
     public Car(String brand, String model, double engineVolume, String color, int year, String country){
-        if (brand == null || brand == ""){
-            this.brand = "default";
-        } else {
-            this.brand = brand;
+        if (brand == null || brand.isEmpty()){
+            brand = "default";
         }
-        if (model == null || model == ""){
-            this.model = "default";
-        } else {
-            this.model = model;
+        this.brand = brand;
+        if (model == null || model.isEmpty()){
+            model = "default";
         }
+        this.model = model;
         if (engineVolume <=0) {
-            this.engineVolume = 1.5;
-        } else {
-            this.engineVolume = engineVolume;
+            engineVolume = 1.5;
         }
-        if (color == null || color == ""){
-            this.color = "белый";
-        }else {
-            this.color = color;
+        this.engineVolume = engineVolume;
+
+        if (color == null || color.isEmpty()){
+            color = "белый";
         }
+        this.color = color;
+
         if (year<=0){
-            this.year = 2000;
-        } else {
-            this.year = year;
+            year = 2000;
         }
-        if (country == null || country ==""){
-            this.country = "default";
-        } else {
-            this.country = country;
+        this.year = year;
+        if (country == null || country.isEmpty()){
+            country = "default";
         }
+        this.country = country;
+
     }
     public String toString(){
         return "Автомобиль " + this.brand + ", модель " + this.model + ", объем двигателя " + this.engineVolume + " л, цвет " + this.color + ", сборка в " + this.year + " году в стране "+ this.country;
