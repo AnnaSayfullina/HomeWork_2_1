@@ -20,6 +20,10 @@ public class Main {
         System.out.println(car4);
         System.out.println(car5);
 
+        System.out.println();
+        Car car6 = new Car(null, null, 0, null, 0, null);
+        System.out.println(car6);
+
 
 
     }
