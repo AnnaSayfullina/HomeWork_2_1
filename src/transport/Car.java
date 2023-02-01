@@ -114,8 +114,8 @@ public class Car {
     public String toString(){
         return "Автомобиль " + brand + ", модель " + model + ", объем двигателя " + engineVolume + " л, цвет " +
                 color + ", сборка в " + year + " году в стране "+ country+"\n" + "коробка передач " + transmission + ", тип кузова "
-                + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ",шины " +
-                (summerTires? " летние" : "зимние")  + "\n";
+                + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ", шины " +
+                (summerTires? "летние" : "зимние")  + "\n";
     }
 
 }
