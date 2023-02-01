@@ -25,6 +25,11 @@ public class Car {
     private String registrationNumber;
     private final int quantityOfSeats;
     private boolean summerTires;
+    private Key key;
+
+    public Key getKey() {
+        return key;
+    }
 
     public String getBrand() {
         return brand;
@@ -89,8 +94,17 @@ public class Car {
     public void setSummerTires(boolean summerTires) {
        this.summerTires = summerTires;
     }
+
+    public void setKey(Key key) {
+        if (key == null){
+            key = new Key(false,false);
+        }
+        this.key = key;
+
+    }
+
     public Car(String brand, String model, double engineVolume, String color, int year, String country,
-               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires){
+               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires, Key key){
         this.brand = (brand == null || brand.isEmpty()) ? "default" : brand;
         this.model = (model == null || model.isEmpty()) ? "default" : model;
         setEngineVolume(engineVolume);
@@ -102,6 +116,7 @@ public class Car {
         setRegistrationNumber(registrationNumber);
         this.quantityOfSeats = quantityOfSeats <=0 ? 2 : quantityOfSeats;
         this.summerTires = summerTires;
+        setKey(key);
     }
     public void changeTires(int month){
         if ( month == 12 || (month <=2 && month>0)){
@@ -115,7 +130,36 @@ public class Car {
         return "Автомобиль " + brand + ", модель " + model + ", объем двигателя " + engineVolume + " л, цвет " +
                 color + ", сборка в " + year + " году в стране "+ country+"\n" + "коробка передач " + transmission + ", тип кузова "
                 + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ", шины " +
-                (summerTires? "летние" : "зимние")  + "\n";
+                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+"\n";
     }
+    /**
+     * В классе Car создайте вложенный класс «Ключ» (Key) с параметрами:
+     «Удаленный запуск двигателя»,
+     «Бесключевой доступ».
+     Данные параметры неизменяемые. Добавьте ко всем новым полям проверку данных:
+     параметры не должны быть пустыми, не должны быть равны null и должны содержать корректные данные.
+     */
+    public static class Key{
+        private final boolean remoteEngineStart;
+        private final boolean keylessAccess;
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
+
+        public Key(boolean remoteEngineStart, boolean keylessAccess) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessAccess = keylessAccess;
+        }
+
+        @Override
+        public String toString() {
+            return (remoteEngineStart?"удаленный запуск двигателя" : "без удаленного запуска двигателя") + ", " +
+                    (keylessAccess? "бесключевой доступ":"бесключевой доступ отсутствует");
+        }
+    }
+
 
 }
