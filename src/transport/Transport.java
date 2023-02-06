@@ -57,7 +57,7 @@ public class Transport {
     }
     @Override
     public String toString(){
-        return brand + ", модель " + model + ", цвет " +
+        return "Марка "+ brand + ", модель " + model + ", цвет " +
                 color + ", сборка в " + year + " году в стране "+ country+ ", max скорость " + maxSpeed;
     }
 
