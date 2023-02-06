@@ -13,6 +13,17 @@ public class Car extends Transport {
     private final int quantityOfSeats;
     private boolean summerTires;
     private Key key;
+    public Car(String brand, String model, double engineVolume, String color, int year, String country,
+               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires, Key key, int maxSpeed) {
+        super(brand, model, color, year, country, maxSpeed);
+        setEngineVolume(engineVolume);
+        setTransmission(transmission);
+        this.carBody = (carBody == null || carBody.isEmpty()) ? "седан" : carBody;
+        setRegistrationNumber(registrationNumber);
+        this.quantityOfSeats = quantityOfSeats <= 0 ? 2 : quantityOfSeats;
+        this.summerTires = summerTires;
+        setKey(key);
+    }
 
     public Key getKey() {
         return key;
@@ -65,18 +76,6 @@ public class Car extends Transport {
         this.key = key;
 
     }
-
-    public Car(String brand, String model, double engineVolume, String color, int year, String country,
-               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires, Key key, int maxSpeed){
-        super(brand, model, color, year, country, maxSpeed);
-        setEngineVolume(engineVolume);
-        setTransmission(transmission);
-        this.carBody = (carBody == null || carBody.isEmpty()) ? "седан" : carBody;
-        setRegistrationNumber(registrationNumber);
-        this.quantityOfSeats = quantityOfSeats <=0 ? 2 : quantityOfSeats;
-        this.summerTires = summerTires;
-        setKey(key);
-    }
     public void changeTires(int month){
         if ( month == 12 || (month <=2 && month>0)){
             summerTires = false;
@@ -90,7 +89,7 @@ public class Car extends Transport {
         return "Автомобиль " + getBrand() + ", модель " + getModel() + ", объем двигателя " + engineVolume + " л, цвет " +
                 getColor() + ", сборка в " + getYear() + " году в стране "+ getCountry()+"\n" + "коробка передач " + transmission + ", тип кузова "
                 + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ", шины " +
-                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+ ", max скорость " + getMaxSpeed()+ "\n";
+                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+ ", max скорость " + getMaxSpeed();
     }
     public static class Key{
         private final boolean remoteEngineStart;
