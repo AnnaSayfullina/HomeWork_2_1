@@ -1,5 +1,4 @@
-package transport;
-
+import transport.Bus;
 import transport.Car;
 
 public class Main {
@@ -34,7 +33,7 @@ public class Main {
         System.out.println(bus1);
         Bus bus2 = new Bus("МАЗ", "104", "голубой", 2022, "Беларусь", 65);
         System.out.println(bus2);
-        Bus bus3= new Bus(" Mercedes-Benz", "Sprinter Classic", "", 2023, "Германия", 100);
+        Bus bus3= new Bus("Mercedes-Benz", "Sprinter Classic", "", 2023, "Германия", 100);
         System.out.println(bus3);
 
 

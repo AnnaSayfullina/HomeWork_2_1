@@ -86,10 +86,9 @@ public class Car extends Transport {
     }
     @Override
     public String toString(){
-        return "Автомобиль " + getBrand() + ", модель " + getModel() + ", объем двигателя " + engineVolume + " л, цвет " +
-                getColor() + ", сборка в " + getYear() + " году в стране "+ getCountry()+"\n" + "коробка передач " + transmission + ", тип кузова "
+        return "Автомобиль " +  super.toString() + "\n" + "коробка передач " + transmission + ", тип кузова "
                 + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ", шины " +
-                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+ ", max скорость " + getMaxSpeed();
+                (summerTires? "летние" : "зимние")  + ", ключ - "+ key;
     }
     public static class Key{
         private final boolean remoteEngineStart;
