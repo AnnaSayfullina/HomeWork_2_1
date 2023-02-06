@@ -1,27 +1,14 @@
 package transport;
 
-/**Создайте пакет transport и перенесите туда класс Car.
- В классе  Car уже созданы следующие свойства:
- «Марка», «Модель», «Объем двигателя» в литрах, «Цвет кузова», «Год производства»,  «Страна сборки».
- Нужно добавить классу Car следующие свойства:
- «Коробка передач», «Тип кузова», «Регистрационный номер», «Количество мест», признак «Летняя» или «Зимняя резина».
- При этом следующие поля изменяться не могут:
- «Марка», «Модель», «Год производства», «Страна сборки», «Тип кузова», «Количество мест».
- Соответственно, для этих полей нужно настроить модификатор доступа и создать геттеры.
- Остальные поля изменяться могут — доступ к ним должен осуществляться через геттеры и сеттеры.
- Не забудьте добавить модификаторы доступа для каждого параметра класса, а также для конструкторов.
- Пропишите проверку данных для новых полей класса, а также значения по умолчанию, если параметры пустые, равны null или имеют некорректное значение.
- Добавьте функциональность: метод «сменить шины на сезонные».
+/**Скорректируйте класс Car таким образом, чтобы ранее указанные параметры не повторяли те, которые содержатся в классе
+ Transport.
+ Класс Car должен наследовать параметры класса Transport.
  */
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String carBody;
+
     private String registrationNumber;
     private final int quantityOfSeats;
     private boolean summerTires;
@@ -29,22 +16,6 @@ public class Car {
 
     public Key getKey() {
         return key;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
     }
 
     public String getCarBody() {
@@ -61,14 +32,6 @@ public class Car {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume <=0 ? 1.5 : engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = (color == null || color.isEmpty()) ? "белый" : color;
     }
 
     public String getTransmission() {
@@ -104,13 +67,9 @@ public class Car {
     }
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country,
-               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires, Key key){
-        this.brand = (brand == null || brand.isEmpty()) ? "default" : brand;
-        this.model = (model == null || model.isEmpty()) ? "default" : model;
+               String transmission, String carBody, String registrationNumber, int quantityOfSeats, boolean summerTires, Key key, int maxSpeed){
+        super(brand, model, color, year, country, maxSpeed);
         setEngineVolume(engineVolume);
-        setColor(color);
-        this.year = year <= 0 ? 2000 : year;
-        this.country = (country == null || country.isEmpty()) ? "default" : country;
         setTransmission(transmission);
         this.carBody = (carBody == null || carBody.isEmpty()) ? "седан" : carBody;
         setRegistrationNumber(registrationNumber);
@@ -126,19 +85,13 @@ public class Car {
             summerTires = true;
         }
     }
+    @Override
     public String toString(){
-        return "Автомобиль " + brand + ", модель " + model + ", объем двигателя " + engineVolume + " л, цвет " +
-                color + ", сборка в " + year + " году в стране "+ country+"\n" + "коробка передач " + transmission + ", тип кузова "
+        return "Автомобиль " + getBrand() + ", модель " + getModel() + ", объем двигателя " + engineVolume + " л, цвет " +
+                getColor() + ", сборка в " + getYear() + " году в стране "+ getCountry()+"\n" + "коробка передач " + transmission + ", тип кузова "
                 + carBody + ", регистрационный номер " + registrationNumber + ", количество мест " + quantityOfSeats + ", шины " +
-                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+"\n";
+                (summerTires? "летние" : "зимние")  + ", ключ - "+ key+ ", max скорость " + getMaxSpeed()+ "\n";
     }
-    /**
-     * В классе Car создайте вложенный класс «Ключ» (Key) с параметрами:
-     «Удаленный запуск двигателя»,
-     «Бесключевой доступ».
-     Данные параметры неизменяемые. Добавьте ко всем новым полям проверку данных:
-     параметры не должны быть пустыми, не должны быть равны null и должны содержать корректные данные.
-     */
     public static class Key{
         private final boolean remoteEngineStart;
         private final boolean keylessAccess;
