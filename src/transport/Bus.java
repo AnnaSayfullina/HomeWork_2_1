@@ -6,6 +6,7 @@ package transport;
  */
 public class Bus extends Transport{
 
+
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -17,6 +18,20 @@ public class Bus extends Transport{
     @Override
     public void finishMoving() {
         System.out.println("Автобус " + getBrand() + " закончил движение");
+    }
+    @Override
+    public void pitStop() {
+        System.out.println("Автобус " + getBrand() + " пит - стоп");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Автобус " + getBrand() + " лучшее время круга ");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Автобус " + getBrand() + " максимальная скорость");
     }
 
     @Override

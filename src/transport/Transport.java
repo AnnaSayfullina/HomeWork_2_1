@@ -2,7 +2,7 @@ package transport;
 
 /**
  */
-public abstract class Transport {
+public abstract class Transport implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;

@@ -28,6 +28,9 @@ public class Main {
         printAll(cars);
         printAll(buses);
         printAll(trucks);
+        trucks[0].pitStop();
+        buses[1].bestLapTime();
+        cars[2].maxSpeed();
 
 
     }

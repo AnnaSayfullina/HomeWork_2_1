@@ -21,4 +21,18 @@ public class Car extends Transport {
     public void finishMoving() {
         System.out.println("Автомобиль " + getBrand() + " закончил движение");
     }
+    @Override
+    public void pitStop() {
+        System.out.println("Автомобиль " + getBrand() + " пит - стоп");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Автомобиль " + getBrand() + " лучшее время круга ");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Автомобиль " + getBrand() + " максимальная скорость");
+    }
 }
