@@ -2,6 +2,7 @@ package transport;
 
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
+    private final Type truck = Type.TRUCK;
 
     public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
@@ -38,6 +39,18 @@ public class Truck extends Transport<DriverC>{
     @Override
     public void maxSpeed() {
         System.out.println("Грузовик " + getBrand() + " максимальная скорость");
+    }
+    @Override
+    public Type getType() {
+        return truck;
+    }
+    @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Грузовик " + getBrand() + " "+ getModel() + " " + loadCapacity);
+        }
     }
     @Override
     public String toString() {

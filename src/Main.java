@@ -1,8 +1,6 @@
 import transport.*;
 
 public class Main {
-    /**
-     */
     public static void main(String[] args) {
         DriverB driverB1 = new DriverB("Иван", true, 10);
         Car[] cars = new Car[4];
@@ -32,6 +30,12 @@ public class Main {
         printInfo(trucks[1]);
         printInfo(cars[0]);
         printInfo(buses[3]);
+        System.out.println(cars[0].getType());
+        System.out.println(buses[1].getType());
+        System.out.println(trucks[2].getType());
+        cars[1].printType();
+        buses[0].printType();
+        trucks[3].printType();
 
     }
     public static void printAll(Transport[] transport){
