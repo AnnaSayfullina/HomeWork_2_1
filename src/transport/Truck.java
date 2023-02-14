@@ -1,9 +1,18 @@
 package transport;
 
 public class Truck extends Transport<DriverC>{
+    private LoadCapacity loadCapacity;
 
-    public Truck(String brand, String model, double engineVolume, DriverC driver) {
+    public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -32,7 +41,7 @@ public class Truck extends Transport<DriverC>{
     }
     @Override
     public String toString() {
-        return "Грузовой автомобиль " + super.toString() ;
+        return "Грузовой автомобиль " + super.toString() + ", " + loadCapacity;
     }
 
 }
