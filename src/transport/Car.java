@@ -58,4 +58,9 @@ public class Car extends Transport<DriverB> {
     public void maxSpeed() {
         System.out.println("Автомобиль " + getBrand() + " максимальная скорость");
     }
+
+    @Override
+    public void doDiagnostics() {
+        System.out.println("Автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
+    }
 }

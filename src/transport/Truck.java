@@ -55,5 +55,9 @@ public class Truck extends Transport<DriverC>{
     public String toString() {
         return "Грузовой автомобиль " + super.toString() + ", " + loadCapacity;
     }
+    @Override
+    public void doDiagnostics() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " прошел диагностику.");
+    }
 
 }
