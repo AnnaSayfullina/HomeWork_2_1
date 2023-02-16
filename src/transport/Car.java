@@ -4,14 +4,13 @@ package transport;
  */
 public class Car extends Transport<DriverB> {
     private CarBody carBody;
-    private final Type car = Type.CAR;
     public Car(String brand, String model, double engineVolume, DriverB driver, CarBody carBody) {
         super(brand, model, engineVolume, driver);
         this.carBody = carBody;
     }
 
     public Type getType() {
-        return car;
+        return Type.CAR;
     }
 
     @Override

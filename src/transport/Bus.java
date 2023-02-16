@@ -4,7 +4,6 @@ package transport;
  */
 public class Bus extends Transport<DriverD>{
     private PassengerCapacity passengerCapacity;
-    private final Type bus = Type.BUS;
 
     public Bus(String brand, String model, double engineVolume, DriverD driver, PassengerCapacity passengerCapacity) {
         super(brand, model, engineVolume, driver);
@@ -44,7 +43,7 @@ public class Bus extends Transport<DriverD>{
     }
     @Override
     public Type getType(){
-        return bus;
+        return Type.BUS;
     }
     @Override
     public void printType() {

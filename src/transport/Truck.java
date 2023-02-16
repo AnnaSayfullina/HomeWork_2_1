@@ -2,7 +2,6 @@ package transport;
 
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapacity;
-    private final Type truck = Type.TRUCK;
 
     public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume, driver);
@@ -42,7 +41,7 @@ public class Truck extends Transport<DriverC>{
     }
     @Override
     public Type getType() {
-        return truck;
+        return Type.TRUCK;
     }
     @Override
     public void printType() {
