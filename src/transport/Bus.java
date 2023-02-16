@@ -1,14 +1,21 @@
 package transport;
 
 /**
- * Создайте новый класс «Автобус» (Bus), который полностью наследует все параметры класса Transport.
- * Создайте любые 3 объекта для данного класса, по каждому выведите в консоль данные.
  */
 public class Bus extends Transport<DriverD>{
+    private PassengerCapacity passengerCapacity;
 
-
-    public Bus(String brand, String model, double engineVolume, DriverD driver) {
+    public Bus(String brand, String model, double engineVolume, DriverD driver, PassengerCapacity passengerCapacity) {
         super(brand, model, engineVolume, driver);
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    public PassengerCapacity getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public void setPassengerCapacity(PassengerCapacity passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
     }
 
     @Override
@@ -34,9 +41,21 @@ public class Bus extends Transport<DriverD>{
     public void maxSpeed() {
         System.out.println("Автобус " + getBrand() + " максимальная скорость");
     }
+    @Override
+    public Type getType(){
+        return Type.BUS;
+    }
+    @Override
+    public void printType() {
+        if (passengerCapacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Автобус " + getBrand() + " " + getModel() + " " +passengerCapacity);
+        }
+    }
 
     @Override
     public String toString() {
-        return "Автобус " + super.toString();
+        return "Автобус " + super.toString() +", " + passengerCapacity;
     }
 }

@@ -3,13 +3,36 @@ package transport;
 /**
  */
 public class Car extends Transport<DriverB> {
-    public Car(String brand, String model, double engineVolume, DriverB driver) {
+    private CarBody carBody;
+    public Car(String brand, String model, double engineVolume, DriverB driver, CarBody carBody) {
         super(brand, model, engineVolume, driver);
+        this.carBody = carBody;
+    }
+
+    public Type getType() {
+        return Type.CAR;
+    }
+
+    @Override
+    public void printType() {
+        if (carBody == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Автомобиль " + getBrand() + " " + getModel() + " " + carBody);
+        }
+    }
+
+    public CarBody getCarBody() {
+        return carBody;
+    }
+
+    public void setCarBody(CarBody carBody) {
+        this.carBody = carBody;
     }
 
     @Override
     public String toString() {
-        return "Автомобиль " + super.toString();
+        return "Автомобиль " + super.toString() + ", " + carBody;
     }
 
     @Override
