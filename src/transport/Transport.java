@@ -60,6 +60,16 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void printType();
     public abstract void doDiagnostics() throws TransportTypeException;
 
+    /**
+     * создан метод проверки типа ТС
+     */
+    public Transport checkTypeOfTransport(){
+        if ( getType() != Type.BUS){
+            return this;
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public String toString(){

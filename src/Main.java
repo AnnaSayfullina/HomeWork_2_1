@@ -1,7 +1,9 @@
 import transport.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * В приложении для автогонок создайте список всех участвующих автомобилей.
@@ -90,6 +92,19 @@ public class Main {
 
         findAndPrintNameOfDriver(cars[3]);
         findAndPrintMechanicsOfTransport(buses[0]);
+        System.out.println();
+
+        Queue<Transport> transportQueue = new LinkedList<>();
+        ServiceStation serviceStation = new ServiceStation(transportQueue);
+        serviceStation.addTransportListToQueue(transportList);
+
+        for (Transport element: transportQueue){
+            System.out.println(element);
+        }
+        System.out.println();
+        serviceStation.conductTechnicalInspection();
+
+
 
     }
 
@@ -100,11 +115,19 @@ public class Main {
             list.add(element);
         }
     }
+
+    /**
+     * создан метод "как зовут водителя авто"
+     */
     public static void findAndPrintNameOfDriver(Transport<?> transport){
         if (transport!= null) {
             System.out.println("Водитель транспортного средства " + transport.getBrand() + " " + transport.getModel() + " " + transport.getDriver());
         }
     }
+
+    /**
+     * создан метод "какие механики есть у автомобиля."
+     */
     public static void findAndPrintMechanicsOfTransport(Transport<?> transport){
         if (transport != null) {
             System.out.print("Механики транспортного средства " + transport.getBrand() + " " + transport.getModel() + " ");
