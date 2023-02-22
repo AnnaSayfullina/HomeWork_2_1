@@ -37,6 +37,15 @@ public class Main {
         buses[0].printType();
         trucks[3].printType();
 
+        cars[0].doDiagnostics();
+        trucks[1].doDiagnostics();
+
+        try {
+            buses[2].doDiagnostics();
+        } catch (TransportTypeException e) {
+            System.err.println(e.getMessage());;
+        }
+
     }
     public static void printAll(Transport[] transport){
         for (Transport element: transport){
