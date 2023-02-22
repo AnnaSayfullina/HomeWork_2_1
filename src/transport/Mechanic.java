@@ -1,5 +1,15 @@
 package transport;
 
+/**
+ * Создайте новый класс «механик» с параметрами:
+ * имя и фамилия;
+ * компания, в которой он работает.
+ * Класс «механик» должен иметь набор методов:
+ * «провести техобслуживание»,
+ * «починить машину».
+ * Один механик может работать с несколькими машинами. Каждый метод нужно создать и вывести по нему информацию в консоль.
+ */
+
 public class Mechanic {
     private final String name;
     private final String surname;
@@ -25,14 +35,18 @@ public class Mechanic {
 
     @Override
     public String toString() {
-        return "Механик " + name +" " + surname +"(компания " + company + ")";
+        return name +" " + surname +"(компания " + company + ")";
     }
 
-    public void doMaintenance (Transport transport){
-        System.out.println("Механику " + name + " " + surname +" необходимо провести техобслуживание транспортного средства " + transport.getBrand() + transport.getModel());
+    public void doMaintenance (Transport<?> transport){
+        if(transport!= null) {
+            System.out.println("Механик " + name + " " + surname + " должен провести техобслуживание транспортного средства " + transport.getBrand() + " " + transport.getModel());
+        }
     }
-    public void repairTransport(Transport transport){
-        System.out.println("Механику " + name + " " + surname +" необходимо отремонтировать транспортное средство " + transport.getBrand() + transport.getModel());
+    public void repairTransport(Transport<?> transport){
+        if(transport!= null) {
+            System.out.println("Механик " + name + " " + surname + " должен отремонтировать транспортное средство " + transport.getBrand() + " " + transport.getModel());
+        }
     }
 
 }
