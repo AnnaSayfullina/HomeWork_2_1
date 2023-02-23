@@ -66,4 +66,9 @@ public class Car extends Transport<DriverB> {
     public void doDiagnostics() {
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
     }
+
+    @Override
+    public boolean isTypeOfTransportNeedsInspection() {
+        return true;
+    }
 }

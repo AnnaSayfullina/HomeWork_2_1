@@ -25,7 +25,7 @@ public class ServiceStation {
      создан метод добавления ТС в очередь с проверкой типа ТС
      */
     public void addTransportQueue (Transport<?> transport){
-        if (transport.checkTypeOfTransport() != null) {
+        if (transport.isTypeOfTransportNeedsInspection()) {
             transportQueue.offer(transport);
         }
     }
@@ -47,8 +47,6 @@ public class ServiceStation {
         while ((transport=transportQueue.poll()) != null){
             System.out.println("Транспортное средство "+transport.getBrand() + " " + transport.getModel() + " прошло ТО");
         }
-
-
     }
 
 }

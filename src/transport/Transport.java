@@ -63,13 +63,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     /**
      * создан метод проверки типа ТС
      */
-    public Transport checkTypeOfTransport(){
-        if ( getType() != Type.BUS){
-            return this;
-        } else {
-            return null;
-        }
-    }
+    public abstract boolean isTypeOfTransportNeedsInspection();
 
     @Override
     public String toString(){
