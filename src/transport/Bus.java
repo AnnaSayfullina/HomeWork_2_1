@@ -2,8 +2,6 @@ package transport;
 
 import java.util.List;
 
-/**
- */
 public class Bus extends Transport<DriverD>{
     private PassengerCapacity passengerCapacity;
 

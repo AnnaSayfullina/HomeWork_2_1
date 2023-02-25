@@ -2,8 +2,6 @@ package transport;
 
 import java.util.List;
 
-/**
- */
 public class Car extends Transport<DriverB> {
     private CarBody carBody;
 

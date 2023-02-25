@@ -103,31 +103,19 @@ public class Main {
         }
         System.out.println();
         serviceStation.conductTechnicalInspection();
-
-
-
     }
-
-    /** Создан метод для добавления всех транспортных средств в список
-     */
     public static void addToListTransport(List<Transport> list,Transport[] transport) {
         for (Transport element: transport){
             list.add(element);
         }
     }
 
-    /**
-     * создан метод "как зовут водителя авто"
-     */
     public static void findAndPrintNameOfDriver(Transport<?> transport){
         if (transport!= null) {
             System.out.println("Водитель транспортного средства " + transport.getBrand() + " " + transport.getModel() + " " + transport.getDriver());
         }
     }
 
-    /**
-     * создан метод "какие механики есть у автомобиля."
-     */
     public static void findAndPrintMechanicsOfTransport(Transport<?> transport){
         if (transport != null) {
             System.out.print("Механики транспортного средства " + transport.getBrand() + " " + transport.getModel() + " ");

@@ -2,14 +2,6 @@ package transport;
 
 import java.util.List;
 
-/**Добавьте в класс Transport метод «Пройти диагностику».
- * Переопределите данный метод для классов «Легковые автомобили» и «Грузовые автомобили» — объекты данных типов могут
- * проходить диагностику. Объекты класса «Автобусы» диагностику проходить не должны.
- * При выполнении этого метода у автобуса должно выводиться сообщение о том, что автобусам проходить диагностику не нужно.
- * Для этого создайте собственное проверяемое исключение TransportTypeException.
- * Конкретную информацию о причине возникновения исключения следует передать в объекте исключения в виде строки.
- * В методе main вызовите метод «Пройти диагностику» для объектов каждого типа транспорта.
- */
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
@@ -60,9 +52,6 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void printType();
     public abstract void doDiagnostics() throws TransportTypeException;
 
-    /**
-     * создан метод проверки типа ТС
-     */
     public abstract boolean isTypeOfTransportNeedsInspection();
 
     @Override
