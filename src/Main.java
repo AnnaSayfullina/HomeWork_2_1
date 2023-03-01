@@ -1,9 +1,6 @@
 import transport.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * В приложении для автогонок создайте список всех участвующих автомобилей.
@@ -103,6 +100,27 @@ public class Main {
         }
         System.out.println();
         serviceStation.conductTechnicalInspection();
+        System.out.println();
+
+        /**
+         * Создайте множество водителей, чтобы в случае добавления одного и того же водителя в базу два раза,
+         * в консоль выводилась информация без повторов.
+         */
+        Set<Driver> driverSet = new HashSet<>();
+        Driver[] drivers = new Driver[9];
+        drivers[0] = new DriverB("Василий", true, 10);
+        drivers[1]= new DriverB("Алексей", true, 15);
+        drivers[2] = new DriverB("Василий", true, 10);
+        drivers[3]= new DriverC("Андрей", true, 20);
+        drivers[4]= new DriverC("Анатолий", true, 9);
+        drivers[5]= new DriverD("Тимур", true, 12);
+        drivers[6] = new DriverD("Денис", true, 14);
+        drivers[7]= new DriverD("Тимур", true, 12);
+        drivers[8] = new DriverC("Анатолий", true, 9);
+        for (Driver driver: drivers){
+            driverSet.add(driver);
+        }
+        System.out.println(driverSet);
     }
     public static void addToListTransport(List<Transport> list,Transport[] transport) {
         for (Transport element: transport){
