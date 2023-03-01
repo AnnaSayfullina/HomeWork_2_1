@@ -101,6 +101,27 @@ public class Main {
         System.out.println();
         serviceStation.conductTechnicalInspection();
         System.out.println();
+        /**
+         * Добавьте HashMap, которая в качестве ключа будет принимать автомобиль, а в качестве значения — список механиков, который его обслуживает.
+         * Выведите все пары ключ-значение через цикл for each.
+         */
+        List<Transport<?>> transportsForMap = new ArrayList<>(List.of(
+                new Car("Lada", "Granta", 1.7, new DriverB("Иван", true, 10), mechanicsList1, CarBody.SEDAN),
+                new Car("Lada", "Granta", 1.7, new DriverB("Иван", true, 10), mechanicsList1, CarBody.SEDAN),
+                new Car("Audi", "A8 50 L TDI quattro", 3.0, new DriverB("Олег", true, 11), mechanicsList2, CarBody.HATCHBACK),
+                new Car("Audi", "A8 50 L TDI quattro", 3.0, new DriverB("Олег", true, 11), mechanicsList2, CarBody.HATCHBACK),
+                new Car("BMW", "Z8", 3.0, new DriverB("Степан", true, 12), mechanicsList1, CarBody.SEDAN),
+                new Car("BMW", "Z8", 3.0, new DriverB("Степан", true, 12), mechanicsList1, CarBody.SEDAN),
+                new Car("KIA", "Sportage 4-го поколения", 2.4, new DriverB("Михаил", true, 9), mechanicsList3, CarBody.CROSSOVER),
+                new Car("KIA", "Sportage 4-го поколения", 2.4, new DriverB("Михаил", true, 9), mechanicsList3, CarBody.CROSSOVER)));
+
+        Map<String, List> carsMap = new HashMap<>();
+        for (Transport element: transportsForMap){
+            carsMap.put(element.getBrand(), element.getMechanics());
+        }
+        for (Map.Entry<String, List> element: carsMap.entrySet()) {
+            System.out.println("У автомобиля " + element.getKey() +" есть механики: " + element.getValue());
+        }
 
         /**
          * Создайте множество водителей, чтобы в случае добавления одного и того же водителя в базу два раза,
