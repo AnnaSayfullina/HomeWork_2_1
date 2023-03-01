@@ -126,6 +126,7 @@ public class Main {
         /**
          * Создайте множество водителей, чтобы в случае добавления одного и того же водителя в базу два раза,
          * в консоль выводилась информация без повторов.
+         * Затем выведите всех водителей в консоль с помощью итератора.
          */
         Set<Driver> driverSet = new HashSet<>();
         Driver[] drivers = new Driver[9];
@@ -141,7 +142,10 @@ public class Main {
         for (Driver driver: drivers){
             driverSet.add(driver);
         }
-        System.out.println(driverSet);
+        Iterator<Driver> iterator = driverSet.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
     public static void addToListTransport(List<Transport> list,Transport[] transport) {
         for (Transport element: transport){
