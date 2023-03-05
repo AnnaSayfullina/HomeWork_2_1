@@ -1,6 +1,7 @@
 package transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport<DriverD>{
     private PassengerCapacity passengerCapacity;
@@ -67,5 +68,19 @@ public class Bus extends Transport<DriverD>{
     @Override
     public boolean isTypeOfTransportNeedsInspection() {
         return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return passengerCapacity == bus.passengerCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), passengerCapacity);
     }
 }
